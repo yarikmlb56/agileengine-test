@@ -1,0 +1,15 @@
+<div class="gallery">
+  <ul *ngIf="imageResponse" class="gallery-items">
+    <mat-card *ngFor="let image of images"
+              [style.backgroundImage]="'url('+ image.cropped_picture +')'"
+              (click)="handleImageSelection(image.id)"
+              class="gallery-item">
+    </mat-card>
+  </ul>
+
+  <mat-paginator hidePageSize
+                 [length]="totalResults"
+                 [pageSize]="images.length"
+                 (page)="handlePageChanged($event)"
+  ></mat-paginator>
+</div>

@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>{{ singleImage.author }}</h2>
+<mat-dialog-content>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button
+          color="primary"
+          (click)="closeModal()">
+    Close
+  </button>
+
+  <button mat-raised-button
+          color="warn"
+          [cdkCopyToClipboard]="singleImage.full_picture">
+    Close
+  </button>
+</mat-dialog-actions>

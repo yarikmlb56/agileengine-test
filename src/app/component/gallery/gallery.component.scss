@@ -1,0 +1,13 @@
+.gallery {
+  .gallery-items {
+    display: flex;
+    flex-wrap: wrap;
+
+    .gallery-item {
+      background-repeat: no-repeat;
+      min-width: 100px;
+      min-height: 100px;
+      margin: 4px;
+    }
+  }
+}
