@@ -4,6 +4,7 @@ import { ImageHttpService } from '../../shared/services';
 import { Image, SingleImage } from '../../../types';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ImageItem } from 'ng-gallery';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-image-preview-component',
@@ -41,7 +42,9 @@ export class ImagePreviewComponent implements OnInit, OnDestroy {
   }
 
   private getSingleImage(): void {
-    this.imageHttpService.getSingleImage(this.imageId).subscribe((singleImage: SingleImage): void => {
+    this.imageHttpService.getSingleImage(this.imageId).pipe(
+      takeUntil(this.destroy$$)
+    ).subscribe((singleImage: SingleImage): void => {
       this.singleImage = singleImage;
     });
   }
