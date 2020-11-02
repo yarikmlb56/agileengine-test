@@ -40,7 +40,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
     this.dialog.open(ImagePreviewComponent, {
       height: '98%',
       width: '100vw',
-      data: { imageId, images: this.images }
+      data: { imageId }
     });
   }
 
