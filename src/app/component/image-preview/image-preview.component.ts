@@ -1,12 +1,14 @@
-import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ImageHttpService } from '../../shared/services';
-import { SingleImage } from '../../../types';
+import { Image, SingleImage } from '../../../types';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ImageItem } from 'ng-gallery';
 
 @Component({
   selector: 'app-image-preview-component',
   templateUrl: './image-preview.component.html',
+  styleUrls: ['./image-preview.component.scss'],
 })
 export class ImagePreviewComponent implements OnInit, OnDestroy {
   public imageId: number;
@@ -16,9 +18,13 @@ export class ImagePreviewComponent implements OnInit, OnDestroy {
 
   public constructor(
     public dialogRef: MatDialogRef<ImagePreviewComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: {imageId: number},
+    @Inject(MAT_DIALOG_DATA) public data: {
+      imageId: number,
+      images: Array<Image>,
+    },
     private imageHttpService: ImageHttpService,
-  ) {}
+  ) {
+  }
 
   public ngOnInit(): void {
     this.imageId = this.data.imageId;

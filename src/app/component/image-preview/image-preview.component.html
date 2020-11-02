@@ -1,17 +1,23 @@
-<h2 mat-dialog-title>{{ singleImage.author }}</h2>
-<mat-dialog-content>
+<div *ngIf="singleImage">
+  <h2 mat-dialog-title>{{ singleImage.author }}</h2>
+  <h4 mat-dialog-title>{{ singleImage.camera }}</h4>
+  <h4 mat-dialog-title>{{ singleImage.tags }}</h4>
 
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-raised-button
-          color="primary"
-          (click)="closeModal()">
-    Close
-  </button>
+  <mat-dialog-content>
+    <div [style.backgroundImage]="'url('+ singleImage.full_picture +')'" class="image-preview-content"></div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button (click)="closeModal()"
+            color="primary"
+            mat-raised-button>
+      Close
+    </button>
 
-  <button mat-raised-button
-          color="warn"
-          [cdkCopyToClipboard]="singleImage.full_picture">
-    Close
-  </button>
-</mat-dialog-actions>
+    <button [cdkCopyToClipboard]="singleImage.full_picture"
+            color="warn"
+            mat-raised-button>
+      Copy image link
+    </button>
+  </mat-dialog-actions>
+
+</div>

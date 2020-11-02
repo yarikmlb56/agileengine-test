@@ -38,9 +38,9 @@ export class GalleryComponent implements OnInit, OnDestroy {
 
   public handleImageSelection(imageId: string): void {
     this.dialog.open(ImagePreviewComponent, {
-      width: '600px',
-      height: '500px',
-      data: { imageId }
+      height: '98%',
+      width: '100vw',
+      data: { imageId, images: this.images }
     });
   }
 

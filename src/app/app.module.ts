@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { GalleryModule } from 'ng-gallery';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatDialogModule,
     MatButtonModule,
     ClipboardModule,
+    GalleryModule,
   ],
   providers: [
     {
